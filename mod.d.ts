@@ -1,4 +1,4 @@
-/**
+/*
 * @license Apache-2.0
 *
 * Copyright (c) 2026 The Stdlib Authors.
@@ -16,34 +16,35 @@
 * limitations under the License.
 */
 
-'use strict';
+// TypeScript Version: 4.1
+
+/// <reference types="https://cdn.jsdelivr.net/gh/stdlib-js/types@main/index.d.ts"/>
+
+import { float64ndarray, uint8ndarray } from '@stdlib/types/ndarray';
 
 /**
-* Compute the minimum absolute value of a double-precision floating-point ndarray according to a mask, ignoring `NaN` values.
+* Computes the minimum absolute value of a double-precision floating-point ndarray according to a mask, ignoring `NaN` values.
 *
-* @module @stdlib/stats-base-ndarray-dnanmskminabs
+* @param arrays - array-like object containing an input ndarray and a mask ndarray
+* @returns minimum absolute value
 *
 * @example
 * var Float64Array = require( '@stdlib/array-float64' );
 * var Uint8Array = require( '@stdlib/array-uint8' );
 * var ndarray = require( '@stdlib/ndarray-base-ctor' );
-* var dnanmskminabs = require( '@stdlib/stats-base-ndarray-dnanmskminabs' );
 *
 * var xbuf = new Float64Array( [ 1.0, -2.0, NaN, 2.0 ] );
 * var x = new ndarray( 'float64', xbuf, [ 4 ], [ 1 ], 0, 'row-major' );
 *
-* var maskbuf = new Uint8Array( [ 0, 0, 0, 0 ] );
-* var mask = new ndarray( 'uint8', maskbuf, [ 4 ], [ 1 ], 0, 'row-major' );
+* var mbuf = new Uint8Array( [ 0, 0, 0, 0 ] );
+* var mask = new ndarray( 'uint8', mbuf, [ 4 ], [ 1 ], 0, 'row-major' );
 *
 * var v = dnanmskminabs( [ x, mask ] );
 * // returns 1.0
 */
-
-// MODULES //
-
-var main = require( './main.js' );
+declare function dnanmskminabs( arrays: [ float64ndarray, uint8ndarray ] ): number;
 
 
 // EXPORTS //
 
-module.exports = main;
+export = dnanmskminabs;
